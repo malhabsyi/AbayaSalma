@@ -1,0 +1,53 @@
+#menusidebar{
+    position: absolute;
+    left:0;
+    height:100vh;
+    top:0;
+    transform: translateX(-100%);
+    z-index: 1;
+    transition: all 1s;
+    
+}
+#menusidebar.slide{
+    transform: translateX(0);
+    z-index: 1;
+    position: fixed;
+    
+}
+body{
+    overflow-x: hidden;
+}
+
+
+.all-products-text{
+    display: flex;
+    justify-content: center;
+    justify-items:center;
+}
+.close-sidebar {
+    color: antiquewhite;
+    justify-content: flex-end;
+    justify-items: center;
+    
+}
+#products-item{
+    padding: 20px;
+}
+
+.container-fluid{
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+
+}
+#sidebar-container{
+    height: 100vh;
+    
+}
+.card-header-products{
+    display: flex;
+    justify-content: space-between;
+}
+.btn-slider-index{
+    justify-content: space-evenly;
+}

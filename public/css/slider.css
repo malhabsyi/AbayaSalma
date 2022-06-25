@@ -1,0 +1,7 @@
+.card-header{
+    display: flex;
+    justify-content: space-between;
+}
+.btn-slider-index{
+    justify-content: space-evenly;
+}

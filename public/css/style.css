@@ -1,0 +1,169 @@
+body{
+    overflow-x: hidden;
+}
+.btn-language{
+    border: 1px solid lightgray;
+}
+.btn-logout{
+    border: 1px solid lightgray;
+}
+
+
+.sidebar-dialog{
+    float: left;
+}
+
+.sidebar-content{
+    margin: 0;
+    width: 300px;
+    height: 100vh;
+    border-radius: 0;
+}
+
+.sidebar-header{
+    margin-right: 20px;
+}
+
+.sidebar, .sidebar-content, .sidebar-dialog{
+    padding: 0 0 0 30px;
+    margin: 0 0 0 0;
+}
+
+ul{
+    padding: 0;
+}
+
+li{
+    list-style: none;
+    margin: 10px 0;
+}
+
+li > a, .a_not_href{
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(165, 42, 42);
+}
+
+.modal.fade:not(.in) .modal-dialog {
+    -webkit-transform: translate3d(-25%, 0, 0);
+    transform: translate3d(-25%, 0, 0);
+}
+
+.btn-back{
+    border: 0;
+}
+
+.search-dialog{
+    position: relative;
+    left: 125px;
+}
+
+.card-header-products{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.btn-slider-index{
+    justify-content: space-evenly;
+}
+#products-item{
+    padding: 10%;
+    padding-top: 0%;
+}
+#header-content{
+    font-family: 'PT Serif', serif;
+    padding: 20px;
+}
+.btn-chat{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 0 15px 15px 0;
+}
+
+.btn-chat > button{
+    border: none;
+    background: none;
+}
+
+.chat-room{
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: white;
+    width: 500px;
+    height: 500px;
+    padding: 15px;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.bahasa-session{
+    position: fixed;
+    top: 70px;
+    right: 100px;
+    background-color: white;
+    width: 300px;
+    height: 225px;
+    padding: 15px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.account-session{
+    position: fixed;
+    top: 70px;
+    right: 0px;
+    background-color: white;
+    width: 200px;
+    height: 150px;
+    padding: 15px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.menu-account{
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+a{ 
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(48, 47, 47);
+
+}
+
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+  
+
+
+  .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+  .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+  .material-icons.md-light { color: rgba(255, 255, 255, 1); }
+  .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+

@@ -1,0 +1,201 @@
+.content{
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.signin, .signup{
+    font-size: 16px;
+    padding: 25px 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.signup > a{
+    text-decoration: none;
+    color: gray;
+}
+
+.signin > b{
+    font-weight: 600;
+}
+
+.signin{
+    border-bottom: 4px solid rgb(44, 44, 44);
+}
+
+.login-content{
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.facebook-section{
+    margin-top: 20px;
+}
+
+.facebook-section > h4{
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.facebook{
+    margin: 20px 0;
+}
+
+.facebook-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4267b2;
+    border-radius: 5px;
+    padding: 5px 0;
+    text-decoration: none;
+}
+
+.facebook-link > .desc-logo{
+    color: white;
+    margin-top: 17px;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding-right: 10px;
+}
+
+
+.facebook-desc{
+    font-size: 15px;
+    color: gray;
+}
+
+.line > hr{
+    border: 1px solid gray;
+    opacity: 1;
+}
+
+.header-title{
+    color: gray;
+}
+
+.forget-pw{
+    font-weight: 100;
+    font-size: 14px;
+    color: black;
+}
+
+.forget-pw:hover{
+    color: black;
+}
+
+.btn-login{
+    background-color: black;
+    color: white;
+    font-weight: 500;
+}
+
+.btn-login:hover{
+    background-color: white;
+    color: black;
+}
+
+.syarat{
+    font-size: 12px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.syarat > a{
+    text-decoration: none;
+}
+
+.form-input{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.form-input > label{
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: gray;
+}
+
+.form-text{
+    padding: 10px;
+    border-radius: 0;
+    border: 1px solid rgb(207, 207, 207);
+}
+
+.form-text:focus{
+    outline: none;
+    border: 1px solid aquamarine;
+}
+
+#seePassword{
+    position: relative;
+
+    left: 300px;
+    bottom: 32px;
+    width: 20px;
+
+    cursor: pointer;
+}
+
+.customize-checkbox{
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.customize-checkbox input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.customize-checkbox input:checked ~ .checkmark {
+    background-color: black;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.customize-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.customize-checkbox .checkmark:after {
+    left: 6px;
+    top: 1px;
+    width: 7px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
