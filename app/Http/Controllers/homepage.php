@@ -10,7 +10,7 @@ class homepage extends Controller
 {
     public function index(){
         $slider = Slider::where('status','0')->get();
-        $product = product::all();
+        $product = product::where('status','0')->get();
         return view ('homepage.index',compact([
             'slider',
             'product'
@@ -18,3 +18,4 @@ class homepage extends Controller
 
     }
 }
+

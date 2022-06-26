@@ -79,9 +79,23 @@
 
                             <div class="form-group">
                                 <label for="">Deskripsi</label>
-                                <textarea name="product_desc" 
+                                <input type="text" name="product_desc" 
                                 value = "{{ $product->product_desc }}"
-                                class="form-control" ></textarea>
+                                class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Stock</label>
+                                <input type="text" name="product_stock" 
+                                value = "{{ $product->product_stock }}"
+                                class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Harga</label>
+                                <input type="text" name="product_harga" 
+                                value = "{{ $product->product_harga }}"
+                                class="form-control">
                             </div>
 
                             <div class="form-group">

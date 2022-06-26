@@ -89,6 +89,26 @@
                                 </div>
                             @enderror
 
+                            <div class="form-group">
+                                <label for="">Harga Product</label>
+                                <textarea name="product_harga" class="form-control @error('product_harga') is-invalid @enderror" ></textarea>
+                            </div>
+                            @error('product_harga')
+                                <div class="invalid-feedback">
+                                 {{ $message }}
+                                </div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="">Stock Product</label>
+                                <textarea name="product_stock" class="form-control @error('product_stock') is-invalid @enderror" ></textarea>
+                            </div>
+                            @error('product_stock')
+                                <div class="invalid-feedback">
+                                 {{ $message }}
+                                </div>
+                            @enderror
+
 
 
                             <div class="form-group">

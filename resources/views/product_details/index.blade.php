@@ -57,49 +57,27 @@
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header-products">
-                        <h5>Update Product</h5>
-                        <div class="btn-product-index">
-                            <a href="{{ url('add-product') }}" class="btn btn-primary float-right">tambah product</a>
-                            <a href="{{ route('home') }}" class="btn btn-primary float-right">back</a>
-                        </div>
-                        
+                        <h5>All Product</h5>
                     </div>
                     <div class="card-body-products">
-                        <table class="table table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>id</th>
-                                    <th>Judul</th>
-                                    <th>Image</th>
-                                    <th>Stock</th>
-                                    <th>status</th>
-                                    <th>edit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($product as $item)
-                                <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->product_name }}</td>
-                                    <td> 
-                                        <img src="{{ asset('uploads/product/'.$item->product_image) }}" width="100px"alt="">
-                                    </td>
-                                    <td>{{ $item->product_stock }}</td>
-                                    <td>
-                                        @if ($item->status == 0)
-                                            visible
-                                        @else 
-                                            hidden
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <a href="{{ url('edit-product/'.$item->id) }}" class="btn btn-success">Edit</a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                            
-                        </table>
+                        <div id="products-item"class="row row-cols-1 row-cols-md-3 g-4">
+                            @foreach ($product as $itemproduct)
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="{{ asset('uploads/product/'.$itemproduct->product_image) }}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $itemproduct->product_name }}</h5>
+                                        <p class="card-text">{{ $itemproduct->product_desc }}</p>
+                                    </div>
+                                    <div class="card-footer row">
+                                        <small class="text">Rp. 200.000,00</small>
+                                        <small class="text">Stock : 20</small>
+                                        <small class="text-muted">Last updated 3 mins ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>

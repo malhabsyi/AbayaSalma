@@ -17,9 +17,12 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->mediumText('product_name');
             $table->mediumText('product_desc');
+            $table->mediumText('product_harga');
+            $table->mediumText('product_stock');
             $table->string('product_image');
             $table->tinyInteger('status')->default('0')->nullable();
             $table->timestamps();
+
         });
     }
 

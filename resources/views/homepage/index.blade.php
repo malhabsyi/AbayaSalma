@@ -82,8 +82,8 @@
                     <p class="card-text">{{ $itemproduct->product_desc }}</p>
                 </div>
                 <div class="card-footer row">
-                    <small class="text">Rp. 200.000,00</small>
-                    <small class="text">Stock : 20</small>
+                    <small class="text">Rp. {{ $itemproduct->product_harga }}</small>
+                    <small class="text">Stock : {{ $itemproduct->product_stock }}</small>
                     <small class="text-muted">Last updated 3 mins ago</small>
                 </div>
             </div>

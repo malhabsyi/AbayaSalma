@@ -17,6 +17,9 @@ Route::middleware('guest')->group(function(){
     Route::get('/registrasi', [RegisterController::class, 'index'])->middleware('guest');
     Route::post('/registrasi', [RegisterController::class, 'store']);
 
+    //ALL PRODUCT
+    Route::get('/products','AllProductController@index');
+
 });
 Route::group(['middleware' =>['auth','cekrole:admin']],function(){
 
@@ -38,6 +41,8 @@ Route::group(['middleware' =>['auth','cekrole:admin']],function(){
 Route::group(['middleware' =>['auth','cekrole:admin,user']],function(){
     //LOGOUT
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+    //ALL PRODUCT
+    Route::get('/products','AllProductController@index');
 
 });
 
