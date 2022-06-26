@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('\css\style.css') }}">
+    <link rel="stylesheet" href="{{ asset('\css\slider.css') }}">
 </head>
 <body>
     <!-- Nav Bar -->
@@ -54,7 +55,20 @@
     <!-- Tools -->
     <div class="container mt-10" >
         <div class="row">
-            <div class="col-md-10">
+            <div class="d-flex justify-content-evenly mb-auto p-2">
+                <div class="product-menu">
+                    <a href="/home-product">
+                        Product Update
+                    </a>
+                </div>
+                <div class="slider-menu">
+                    <b>
+                        Slider Update
+                    </b>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-flex">
                 <div class="card">
                     <div class="card-header-products">
                         <h5>Update Slider</h5>

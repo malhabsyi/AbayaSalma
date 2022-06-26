@@ -2,11 +2,11 @@
     display: flex;
     justify-content: space-between;
 }
-.btn-slider-index{
+.btn-product-index{
     justify-content: space-evenly;
 }
 
-.slider-menu{
+.product-menu{
     border-bottom: 4px solid rgb(44, 44, 44);
 }
 a{

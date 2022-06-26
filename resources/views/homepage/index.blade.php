@@ -94,7 +94,6 @@
     <div class="w-100 text-center">
         <a href="{{ route('home') }}"><img src="{{ asset('images/product1.jpg') }}" alt="Product1" class="w-100"></a>
         <img src="{{ asset('images/services.jpg') }}" alt="Services" class="w-75">
-        <img src="{{ asset('images/payment.jpg') }}" alt="Payment" class="w-75">
     </div>
     <!-- Footer -->
     <footer class="container text-center">

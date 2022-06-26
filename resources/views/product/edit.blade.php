@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('\css\style.css') }}">
+    <link rel="stylesheet" href="{{ asset('\css\product.css') }}">
     <title>Abaya Salma</title>
   </head>
   <body>
@@ -55,15 +56,29 @@
     <!-- Table -->
     <div class="container mt-10">
         <div class="row">
-            <div class="col-md-10">
+        <div class="d-flex justify-content-evenly mb-auto p-2">
+                <div class="product-menu">
+                    <b class="product-menu">
+                        Product Update
+                    </b>
+                </div>
+                <div class="slider-menu">
+                    <a href="/home-slider">
+                        Slider Update
+                    </a>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-flex">
                 @if(session('status'))
                     <h5 class=alert alert-success>{{ session('status') }}</h5>
                 @endif
                 <div class="card">
                     <div class="card-header">
                         <h5>Edit Product
-                            <a href="{{ url('home-product') }}" class="btn btn-primary float-right">back</a>
+                            
                         </h5>
+                        <a href="{{ url('home-product') }}" class="btn btn-primary float-right">back</a>
                     </div>
                     <div class="card-body">
                         <form action="{{ url('update-product/'.$product->id) }}" method="POST" enctype="multipart/form-data">

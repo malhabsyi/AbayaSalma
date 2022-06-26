@@ -37,6 +37,8 @@ Route::group(['middleware' =>['auth','cekrole:admin']],function(){
     Route::get('edit-product/{id}','ProductController@edit');
     Route::put('update-product/{id}','ProductController@update');
 
+
+
 });
 Route::group(['middleware' =>['auth','cekrole:admin,user']],function(){
     //LOGOUT
