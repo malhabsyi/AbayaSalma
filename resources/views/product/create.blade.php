@@ -164,8 +164,8 @@
                 </div>
                 <div class="modal-body">
                     <ul>
-                        <li><a href="{{ route('home') }}">🔥 New Products</a></li>
-                        <li><a href="{{ route('home') }}">💵 Payment Confirmation</a></li>
+                        <li><a href="/products">🔥 New Products</a></li>
+                        <li><a href="/home-pembelian">💵 Payment Confirmation</a></li>
                         <li><a class="a_not_href" onclick="showList()">👕 Product Category</a></li>
                         <div id="list-products">
                             <li><a href="{{ route('home') }}">Crewneck</a></li>
@@ -242,7 +242,7 @@
     <div class="account" id="account">
         <div class="account-session d-flex flex-column justify-content-between">
             <div class="menu-account d-flex flex-column">
-                <a href="{{ route('home') }}">Profile</a>
+                <a href="/home-pembelian">Pembayaran</a>
                 <a href="{{ route('homeproduct') }}">Dashboard</a> 
             </div>
             <form action="{{ route('logout') }}" method="post">

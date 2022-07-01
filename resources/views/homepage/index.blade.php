@@ -81,13 +81,32 @@
                     <h5 class="card-title">{{ $itemproduct->product_name }}</h5>
                     <p class="card-text">{{ $itemproduct->product_desc }}</p>
                 </div>
-                <div class="card-footer row">
+                <div class="card-footer row w-100">
                     <small class="text">Rp. {{ $itemproduct->product_harga }}</small>
                     <small class="text">Stock : {{ $itemproduct->product_stock }}</small>
                     <small class="text-muted">Last updated {{ $itemproduct->updated_at }}</small>
                 </div>
+                <form action="{{ url('store-pembelian') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" id="product_id" name="product_id" value="{{ $itemproduct->id }}">
+                    @auth
+                    <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
+                    @endauth
+                    <input type="hidden" id="quantity" name="quantity" value="1">
+                    <input type="hidden" id="status_tf" name="status_tf" value="0">
+                    <input type="hidden" id="total_harga" name="total_harga" value="{{ $itemproduct->product_harga }}">
+                    <br>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-dark shadow rounded w-50 p-2">Beli</button>
+                    </div>
+                    <br>
+                    
+                    
+
+                </form>
             </div>
         </div>
+        
         @endforeach
     </div>
     <!-- Banner -->
@@ -116,8 +135,8 @@
                 </div>
                 <div class="modal-body">
                     <ul>
-                        <li><a href="{{ route('home') }}">🔥 New Products</a></li>
-                        <li><a href="{{ route('home') }}">💵 Payment Confirmation</a></li>
+                        <li><a href="/products">🔥 New Products</a></li>
+                        <li><a href="/home-pembelian">💵 Payment Confirmation</a></li>
                         <li><a class="a_not_href" onclick="showList()">👕 Product Category</a></li>
                         <div id="list-products">
                             <li><a href="{{ route('home') }}">Crewneck</a></li>
@@ -196,7 +215,7 @@
         <div class="account-session d-flex flex-column justify-content-between">
             <div class="menu-account d-flex flex-column">
 
-                    <a href="{{ route('home') }}">Profile</a>
+                    <a href="/home-pembelian">Pembayaran</a>
                     <a href="{{ route('homeslider') }}">Dashboard</a> 
             </div>
             <form action="{{ route('logout') }}" method="post">

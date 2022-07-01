@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Landing Page</title>
+    <title>Abaya Salma</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('\css\style.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\slider.css') }}">
+    <link rel="stylesheet" href="{{ asset('\css\product.css') }}">
 </head>
 <body>
     <!-- Nav Bar -->
@@ -55,57 +55,63 @@
     <!-- Tools -->
     <div class="container mt-10" >
         <div class="row">
-            <div class="d-flex justify-content-evenly mb-auto p-2">
-                <div class="product-menu">
-                    <a href="/home-product">
-                        Product Update
-                    </a>
-                </div>
-                <div class="slider-menu">
-                    <b>
-                        Slider Update
-                    </b>
-                </div>
-            </div>
-            <br>
             <div class="col-md-flex">
                 <div class="card">
                     <div class="card-header-products">
-                        <h5>Update Slider</h5>
-                        <div class="btn-slider-index">
-                            <a href="{{ url('add-slider') }}" class="btn btn-primary float-right">tambah slider</a>
-                            <a href="{{ route('home') }}" class="btn btn-primary float-right">back</a>
-                        </div>
-                        
+                        <h5>Keranjang Belanja</h5>
                     </div>
                     <div class="card-body-products">
                         <table class="table table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>id</th>
-                                    <th>Judul</th>
-                                    <th>Image</th>
-                                    <th>status</th>
-                                    <th>edit</th>
+                                    <th>Nama Produk</th>
+                                    <th class="text-center">Gambar Produk</th>
+                                    <th>Quantity</th>
+                                    <th>Total Harga</th>
+                                    <th>Bukti Transfer</th>
+                                    <th>Status Transfer</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($slider as $item)
+                                @foreach ($pembelian as $keranjang)
                                 <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->heading }}</td>
-                                    <td> 
-                                        <img src="{{ asset('uploads/slider/'.$item->image) }}" width="100px"alt="">
-                                    </td>
                                     <td>
-                                        @if ($item->status == 0)
-                                            visible
+                                        @foreach ($product as $item)
+                                            @if($item->id == $keranjang->product_id)
+                                                <p>{{ $item->product_name }}</p>
+                                            @endif
+                                        @endforeach
+                                        
+                                    <td class="text-center">
+                                        @foreach ($product as $item)
+                                            @if($item->id == $keranjang->product_id)
+                                                <img src="{{ asset('uploads/product/'.$item->product_image) }}" class="card-img-top w-50" alt="...">
+                                            @endif
+                                        @endforeach
+                                    </td>
+                                    <td>{{ $keranjang->quantity }}</td>
+                                    <td>{{ $keranjang->total_harga }}</td>
+                                    <td>
+                                        @if ($keranjang->bukti_tf!=NULL)
+                                            <img src="{{ asset('uploads/bukti_tf/'.$keranjang->bukti_tf) }}" class="card-img-top w-50" alt="...">
                                         @else 
-                                            hidden
+                                            <p>Silahkan Upload Bukti Pembayaran</p>
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ url('edit-slider/'.$item->id) }}" class="btn btn-success">Edit</a>
+                                        @if ($keranjang->status_tf == 1)
+                                            telah dibayar
+                                        @else 
+                                            belum dibayar
+                                        @endif
+                                    </td>
+                                    <td>
+                                            @if(Auth::user()->role == "user")
+                                            <a href="{{ url('edit-pembelian/'.$keranjang->id) }}" class="btn btn-success">Upload Bukti Pembayaran</a>
+                                            @endif
+                                            @if(Auth::user()->role == "admin")
+                                            <a href="{{ url('edit-pembelian/'.$keranjang->id) }}" class="btn btn-success">Update Status Pembayaran</a>
+                                            @endif
                                     </td>
                                 </tr>
                                 @endforeach
@@ -206,7 +212,7 @@
         <div class="account-session d-flex flex-column justify-content-between">
             <div class="menu-account d-flex flex-column">
                 <a href="/home-pembelian">Pembayaran</a>
-                <a href="{{ route('homeslider') }}">Dashboard</a> 
+                <a href="{{ route('homeproduct') }}">Dashboard</a> 
             </div>
             <form action="{{ route('logout') }}" method="post">
                 @csrf

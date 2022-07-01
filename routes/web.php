@@ -36,6 +36,7 @@ Route::group(['middleware' =>['auth','cekrole:admin']],function(){
     Route::post('store-product','ProductController@store');
     Route::get('edit-product/{id}','ProductController@edit');
     Route::put('update-product/{id}','ProductController@update');
+    
 
 
 
@@ -44,7 +45,14 @@ Route::group(['middleware' =>['auth','cekrole:admin,user']],function(){
     //LOGOUT
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     //ALL PRODUCT
-    Route::get('/products','AllProductController@index');
+    Route::get('/products','AllProductController@index')->name('products');
+    //PEMBELIAN
+    Route::get('/home-pembelian','PembelianController@index')->name('homepembelian');
+    Route::post('store-pembelian','PembelianController@store');
+    Route::get('edit-pembelian/{id}','PembelianController@edit');
+    Route::put('update-pembelian/{id}','PembelianController@update');
+
+
 
 });
 
