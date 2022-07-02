@@ -70,7 +70,7 @@
             <br>
             <div class="col-md-flex">
                 <div class="card">
-                    <div class="card-header-products">
+                    <div class="card-header-products d-flex justify-content-between">
                         <h5>Update Slider</h5>
                         <div class="btn-slider-index">
                             <a href="{{ url('add-slider') }}" class="btn btn-primary float-right">tambah slider</a>

@@ -70,7 +70,7 @@
             <br>
             <div class="col-md-flex">
                 <div class="card">
-                    <div class="card-header-products">
+                    <div class="card-header-products d-flex justify-content-between">
                         <h5>Update Product</h5>
                         <div class="btn-product-index">
                             <a href="{{ url('add-product') }}" class="btn btn-primary float-right">tambah product</a>

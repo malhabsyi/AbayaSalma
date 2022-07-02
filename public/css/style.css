@@ -60,7 +60,7 @@ li > a, .a_not_href{
 
 .card-header-products{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: 20px;
 }
 .btn-slider-index{
