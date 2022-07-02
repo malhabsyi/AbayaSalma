@@ -74,6 +74,7 @@
     </div>
     <div id="products-item"class="row row-cols-1 row-cols-md-3 g-4">
         @foreach ($product as $itemproduct)
+        @if ($itemproduct->product_stock>=1)
         <div class="col">
             <div class="card h-100">
                 <img src="{{ asset('uploads/product/'.$itemproduct->product_image) }}" class="card-img-top" alt="...">
@@ -106,7 +107,7 @@
                 </form>
             </div>
         </div>
-        
+        @endif
         @endforeach
     </div>
     <!-- Banner -->
