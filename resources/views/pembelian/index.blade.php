@@ -56,6 +56,10 @@
     <div class="container mt-10" >
         <div class="row">
             <div class="col-md-flex">
+                <br>
+                <b>Note :</b>
+                <p>*pemesanan hari senin - sabtu maksimal jam 2 siang akan dikirim dihari yang sama, jika pemesanan melebihi jam 2 siang akan dikirim hari berikutnya. Untuk retur wajib menyertakan video unboxing paket dan resinya
+*lengkapi koleksimu dengan ABAYA SALMA*</p>
                 <div class="card">
                     <div class="card-header-products">
                         <h5>Keranjang Belanja</h5>
@@ -74,46 +78,97 @@
                             </thead>
                             <tbody>
                                 @foreach ($pembelian as $keranjang)
-                                <tr>
-                                    <td>
-                                        @foreach ($product as $item)
-                                            @if($item->id == $keranjang->product_id)
-                                                <p>{{ $item->product_name }}</p>
-                                            @endif
-                                        @endforeach
+                                @if(Auth::user()->role == "user")
+                                    @if($keranjang->user_id == auth()->user()->id)
+                                    <tr>
+                                            <td>
+                                                @foreach ($product as $item)
+                                                    @if($item->id == $keranjang->product_id)
+                                                        <p>{{ $item->product_name }}</p>
+                                                    @endif
+                                                @endforeach
+                                                
+                                            <td class="text-center">
+                                                @foreach ($product as $item)
+                                                    @if($item->id == $keranjang->product_id)
+                                                        <img src="{{ asset('uploads/product/'.$item->product_image) }}" class="card-img-top w-50" alt="...">
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td>{{ $keranjang->quantity }}</td>
+                                            <td>{{ $keranjang->total_harga }}</td>
+                                            <td>
+                                                @if ($keranjang->bukti_tf!=NULL)
+                                                    <img src="{{ asset('uploads/bukti_tf/'.$keranjang->bukti_tf) }}" class="card-img-top w-50" alt="...">
+                                                @else 
+                                                    <p>Silahkan Upload Bukti Pembayaran</p>
+
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($keranjang->status_tf == 1)
+                                                    telah dibayar
+                                                @else 
+                                                    belum dibayar
+                                                @endif
+                                            </td>
+                                            <td>
+                                                    @if(Auth::user()->role == "user")
+                                                    <a href="{{ url('edit-pembelian/'.$keranjang->id) }}" class="btn btn-success">Upload Bukti Pembayaran</a>
+                                                    @endif
+                                                    @if(Auth::user()->role == "admin")
+                                                    <a href="{{ url('edit-pembelian/'.$keranjang->id) }}" class="btn btn-success">Update Status Pembayaran</a>
+                                                    @endif
+                                            </td>
                                         
-                                    <td class="text-center">
-                                        @foreach ($product as $item)
-                                            @if($item->id == $keranjang->product_id)
-                                                <img src="{{ asset('uploads/product/'.$item->product_image) }}" class="card-img-top w-50" alt="...">
-                                            @endif
-                                        @endforeach
-                                    </td>
-                                    <td>{{ $keranjang->quantity }}</td>
-                                    <td>{{ $keranjang->total_harga }}</td>
-                                    <td>
-                                        @if ($keranjang->bukti_tf!=NULL)
-                                            <img src="{{ asset('uploads/bukti_tf/'.$keranjang->bukti_tf) }}" class="card-img-top w-50" alt="...">
-                                        @else 
-                                            <p>Silahkan Upload Bukti Pembayaran</p>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if ($keranjang->status_tf == 1)
-                                            telah dibayar
-                                        @else 
-                                            belum dibayar
-                                        @endif
-                                    </td>
-                                    <td>
-                                            @if(Auth::user()->role == "user")
-                                            <a href="{{ url('edit-pembelian/'.$keranjang->id) }}" class="btn btn-success">Upload Bukti Pembayaran</a>
-                                            @endif
-                                            @if(Auth::user()->role == "admin")
-                                            <a href="{{ url('edit-pembelian/'.$keranjang->id) }}" class="btn btn-success">Update Status Pembayaran</a>
-                                            @endif
-                                    </td>
-                                </tr>
+                                    </tr>
+                                    @endif
+                                @endif
+                                @if(Auth::user()->role == "admin")
+                                    <tr>
+                                            <td>
+                                                @foreach ($product as $item)
+                                                    @if($item->id == $keranjang->product_id)
+                                                        <p>{{ $item->product_name }}</p>
+                                                    @endif
+                                                @endforeach
+                                                
+                                            <td class="text-center">
+                                                @foreach ($product as $item)
+                                                    @if($item->id == $keranjang->product_id)
+                                                        <img src="{{ asset('uploads/product/'.$item->product_image) }}" class="card-img-top w-50" alt="...">
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td>{{ $keranjang->quantity }}</td>
+                                            <td>{{ $keranjang->total_harga }}</td>
+                                            <td>
+                                                @if ($keranjang->bukti_tf!=NULL)
+                                                    <img src="{{ asset('uploads/bukti_tf/'.$keranjang->bukti_tf) }}" class="card-img-top w-50" alt="...">
+                                                @else 
+                                                    <p>Bukti Pembayaran Belum Tersedia</p>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($keranjang->status_tf == 1)
+                                                    telah dibayar
+                                                @else 
+                                                    belum dibayar
+                                                @endif
+                                            </td>
+                                            <td>
+                                                    @if(Auth::user()->role == "user")
+                                                    <a href="{{ url('edit-pembelian/'.$keranjang->id) }}" class="btn btn-success">Upload Bukti Pembayaran</a>
+                                                    @endif
+                                                    @if(Auth::user()->role == "admin")
+                                                    <a href="{{ url('edit-pembelian/'.$keranjang->id) }}" class="btn btn-success">Update Status Pembayaran</a>
+                                                    @endif
+                                            </td>
+                                        
+                                    </tr>
+                                @endif
+
+
                                 @endforeach
                             </tbody>
                             

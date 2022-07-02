@@ -13,7 +13,7 @@ class PembelianController extends Controller
 {
     public function index(){
 
-        $pembelian = Pembelian::where('user_id',auth()->user()->id)->get();
+        $pembelian = Pembelian::all();
         $product = Product::all();
         return view('pembelian.index',compact([
             'pembelian',
